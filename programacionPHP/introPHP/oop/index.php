@@ -1,56 +1,26 @@
 <?php
-  class Vehiculo {
-    private $owner;
+  include 'vehicles/Car.php';
+  include 'vehicles/Truck.php';
 
-    public function __construct($owner) {
-      $this->owner = $owner;
-      echo 'construct <br>';
-    }
-
-    // public function __destruct() {
-    //   echo 'destruct <br>';
-    // }
-
-    public function move() {
-      echo 'moving <br>';
-    }
-
-    public function getOwner() {
-      return $this->owner;
-    }
-
-    public function setOwner($owner) {
-      $this->owner = $owner;
-    }
-  }
-
-  class Car extends Vehiculo {
-    public function move() {
-      echo 'Car: moving <br>';
-    }
-  }
-
-  class Camioneta extends Vehiculo {
-    private $type;
-
-    public function __construct($ownerName, $type) {
-      $this->type = $type;
-      parent::__construct($ownerName);
-    }
-
-    public function move() {
-      echo 'Camioneta ' . $this->type . ': moving <br>';
-    }
-  }
+  use Vehicles\{Car, Truck};
 
   echo 'Class Car <br>';
   $car = new Car('Fabian');
   $car->move();
   echo 'Owner car: ' . $car->getOwner() . '<br>';
 
-  echo 'Class Camioneta <br>';
-  $camioneta - new Camioneta('Jared', 'pickup');
-  $camioneta->move();
-  echo 'Owner camioneta:' . $camioneta->getOwner();
 
+  echo 'Class Truck 1<br>';
+  $truck1 - new Truck('Jared', 'pickup');
+  $truck1->move();
+  // echo 'Owner truck:' . $truck->getOwner();
+
+  echo 'Class Truck 2<br>';
+  $truck2 - new Truck('Jared', 'pickup');
+  $truck2->move();
+  // echo 'Owner truck:' . $truck->getOwner();
+
+  echo '<br>Total Truck: ' . Truck::getTotal() . '<br>';
+
+  
 ?>
